@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Blood Donations</title>
+	<link rel="stylesheet" href="blood_donations.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>RUDHIR</h2>
+        <ul>
+            <li><a href="/Admin/admindashboard.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/Admin/blood_donations.html"><i class="fas fa-hand-holding-medical"></i>Donations</a></li>
+            <li><a href="blood_requests.html"><i class="fas fa-sync-alt"></i>Blood Requests</a></li>
+            <li><a href="request_history.html"><i class="fas fa-history"></i>Request History</a></li>
+            <li><a href="admin-login.html"><i class="fa-solid fa-right-from-bracket"></i><span style="padding-right: 10px;"></span>Logout</a></li>
+        </ul> 
+        
+    </div>
+    <div class="main_content">
+        <div class="header">Blood Donations</div>  
+        <div class="info">
+           <table class="table">
+            <thead>
+                <tr>
+                    <th>Donor Name</th>
+                    <th>Disease</th>
+                    <th>Age</th>
+                    <th>Blood Group</th>
+                    <th>Unit</th>
+                    <th>Donated Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mayur</td>
+                    <td>XYZ</td>
+                    <td>21</td>
+                    <td>O+ve</td>
+                    <td>7</td>
+                    <td>Oct,10,2021</td>
+                    <td>Pending</td>
+                    <td>
+                        <a class='btn btn-primary btn-sm' href="Approve">Approve</a>
+                        <a class='btn btn-danger btn-sm'href="Reject">Reject</a>
+                    </td>
+                </tr>
+                
+            </tbody>
+           </table>
+      </div>
+    </div>
+</div>
+
+</body>
+</html>

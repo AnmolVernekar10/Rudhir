@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pat-reg.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&family=Titillium+Web:wght@300&display=swap"
+        rel="stylesheet">;
+
+    <title> User Registration</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">
+            User registration
+        </div>
+
+        <form action="/saveuser" method="post">
+            <div class="user-details">
+
+                <div class="input-box">
+                    <span class="details">
+                        Full name
+                    </span>
+                    <input type="text" placeholder="Enter your name" required name="fullname" autofocus maxlength="20">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                        Date of Birth
+                    </span>
+                    <input type="date" placeholder="Enter DOB" required name="dob" autofocus >
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                        Phone number
+                    </span>
+                    <input type="tel" placeholder="Enter phone number" required name="phoneno" autofocus maxlength="10">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                        Email
+                    </span>
+                    <input type="email" placeholder="Enter your Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required name="emailid" autofocus>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                        Password
+                    </span>
+                    <input type="password" placeholder="Enter Password" required name="password" autofocus>
+                </div> 
+
+                <div class="input-box">
+                    <span class="details">
+                        Confirm Password
+                    </span>
+                    <input type="password" placeholder="Confirm Password" required name="cpassword" autofocus>
+                </div>
+
+            </div>
+                <div class="gender-details">
+                    <span class="gender-title">Gender</span>
+                    <select name="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="-">Prefer not to say</option>
+                    </select>
+                </div>
+                
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+        </form>
+    </div>
+</body>
+
+</html>
+

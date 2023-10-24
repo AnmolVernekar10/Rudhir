@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Blood Donations</title>
+	<link rel="stylesheet" href="Admin/blood_donations.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>RUDHIR</h2>
+        <ul>
+            <li><a href="/Admin/admin-home.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/Admin_donations.ejs"><i class="fas fa-hand-holding-medical"></i>Blood Donations</a></li>
+            <li><a href="/Admin_requests.ejs"><i class="fas fa-sync-alt"></i>Blood Requests</a></li>
+            <!-- <li><a href="request_history.html"><i class="fas fa-history"></i>Request History</a></li> -->
+            <li><a href="/Admin_homepage.ejs"><i class="fas fa-hand-holding-medical"></i>Blood Stock</a></li>
+            <li><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i><span style="padding-right: 10px;"></span>Logout</a></li>
+        </ul>  
+        
+    </div>
+    <div class="main_content">
+        <div class="header">Blood Donations</div>  
+        <div class="info">
+           <table class="table">
+            <thead>
+                <tr>
+                    <th>Donor Name</th>
+                    <th>Disease</th>
+                    <th>Age</th>
+                    <th>Blood Group</th>
+                    <th>Quantity</th>
+                    <th>Donated Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                    <% for (let i = 0; i < blooddtn.length; i++) { %>
+                        <tr>
+                            <td id="Name"><%= blooddtn[i].Name %></td>
+                            <td id="Disease"><%= blooddtn[i].Disease %></td>
+                            <td id="Age"><%= blooddtn[i].Age %></td>
+                            <td id="Bloodgrp"><%= blooddtn[i].Bloodgrp %></td>
+                            <td id="Quantity"><%= blooddtn[i].Quantity %></td>
+                            <td id="Donationdate"><%= blooddtn[i].Donationdate %></td>
+                            <td id="Status"><%= blooddtn[i].Status %></td>
+                            <td>
+                                <button type="button" id="acceptButton" style="color:black;background-color:rgb(56, 200, 56) ; border-radius: 15px; padding: 5px;" onclick="sendToAdminEntry(<%= i %>)" >Accept</button>
+                                <button type="button" style="color:black;background-color:red; border-radius: 15px; padding: 5px;"  onclick="sendToAdminreject(<%= i %>)">Reject</button>
+                            </td>
+                            
+                        </tr>
+                        <% } %>
+            </tbody>
+           </table>
+      </div>
+    </div>
+</div>
+<script>
+    function sendToAdminEntry(i) {
+        // Send 'i' to admin.js using an AJAX request
+        fetch('/accept', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ i: i })
+        })
+        .then(response => {
+            if (response.status === 200) {
+                // Handle success, e.g., show a message to the user
+                alert('Accepted successfully!');
+            } else {
+                // Handle errors, e.g., show an error message
+                alert('Acceptance failed.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        location.reload()
+    }
+    function sendToAdminreject(i) {
+        // Send 'i' to admin.js using an AJAX request
+        fetch('/reject', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ i: i })
+        })
+        .then(response => {
+            if (response.status === 200) {
+                // Handle success, e.g., show a message to the user
+                alert('Accepted successfully!');
+            } else {
+                // Handle errors, e.g., show an error message
+                alert('Acceptance failed.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        location.reload()
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Request Blood</title>
+	<link rel="stylesheet" href="/User/request_blood.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>RUDHIR</h2>
+        <ul>
+            <li><a href="/User/user-home.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/user_donate_blood.ejs"><i class="fas fa-user"></i>Donate</a></li>
+            <li><a href="/user_request_blood.ejs"><i class="fas fa-user-injured"></i>Request</a></li>
+            <li><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i><span style="padding-right: 10px;"></span>Logout</a></li>
+        </ul>
+        
+    </div>
+    <div class="main_content">
+        <div class="header">Request Blood</div>  
+        <div class="info">
+            <div class="info">
+                <table class="table">
+                 <thead>
+                     <tr>
+                         <th>Blood Bank Name</th>
+                         <th>Blood Bank ID</th>
+                         <th>Location</th>
+                         <!-- <th>Action</th> -->
+                     </tr>
+                 </thead>
+                 <tbody>
+                    <% bloodbanks.forEach(bloodbank => {%>
+                        <tr>
+                            
+                            <td><%=bloodbank.BloodBankName%></td>
+                            <td><%=bloodbank.BloodBank_ID%></td>
+                            <td><%=bloodbank.Location%></td>
+                            <!-- <td>
+                                <a class='btn btn-primary btn-sm' href="/User/user-request_form.html">Request</a>
+                            </td> -->
+                        </tr>
+                    <%});%>
+                 </tbody>
+                </table>
+                <td>
+                   <a class='btn btn-primary btn-sm' href="/User/user-request_form.html">Request</a>
+                   </td>
+           </div>
+      </div>
+    </div>
+</div>
+
+</body>
+</html>

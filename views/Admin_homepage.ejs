@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Admin Dashboard</title>
+	<link rel="stylesheet" href="/Admin/admindashboard.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>RUDHIR</h2>
+        <ul>
+            <li><a href="/Admin/admin-home.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/Admin_donations.ejs"><i class="fas fa-hand-holding-medical"></i>Blood Donations</a></li>
+            <li><a href="/Admin_requests.ejs"><i class="fas fa-sync-alt"></i>Blood Requests</a></li>
+            <li><a href="/Admin_homepage.ejs"><i class="fas fa-hand-holding-medical"></i>Blood Stock</a></li>
+            <li><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i><span style="padding-right: 10px;"></span>Logout</a></li>
+        </ul> 
+        
+    </div>
+    <div class="main_content">
+        <div class="header">Blood Stock</div>  
+        <div class="container">
+            <div class="box-container">
+                    <div class="box">
+                        <h3>A+<span style="padding-right: 10px;"></span><i class="fas fa-tint" style="color: red;"></i></h3>
+                        <h2><%=x.BloodType["A+"]%> Lit</h2>
+                    </div>
+                    
+                    <div class="box">
+                        <h3>B+<span style="padding-right: 10px;"></span><i class="fas fa-tint" style="color: red;"></i></h3>
+                        <h2><%=x.BloodType["B+"]%> Lit</h2>
+                    </div>
+                    
+                    <div class="box">
+                        
+                        <h3>AB+<span style="padding-right: 10px;"></span><i class="fas fa-tint" style="color: red;"></i></h3>
+                        <h2><%=x.BloodType["AB+"]%> Lit</h2>
+                    </div>
+                    
+                    <div class="box">
+                        
+                        <h3>O+<span style="padding-right: 10px;"></span><i class="fas fa-tint" style="color: red;"></i></h3>   
+                        <h2><%=x.BloodType["O+"]%> Lit</h2>
+                    </div>
+                    
+                    <div class="box">
+                        
+                        <h3>A-<span style="padding-right: 15px;"></span><i class="fas fa-tint" style="color: red;"></i></h3>
+                        <h2><%=x.BloodType["A-"]%> Lit</h2>
+        
+                    </div>
+                    
+                    <div class="box">
+                        
+                        <h3>B-<span style="padding-right: 15px;"></span><i class="fas fa-tint" style="color: red;"></i></h3>
+                        <h2><%=x.BloodType["B-"]%> Lit</h2>
+    
+                    </div>
+                    <div class="box">
+                    
+                        <h3>AB-<span style="padding-right: 15px;"></span><i class="fas fa-tint" style="color: red;"></i></h3>
+                        <h2><%=x.BloodType["AB-"]%> Lit</h2>
+    
+                    </div>
+                    
+                    <div class="box">
+                        
+                        <h3>O-<span style="padding-right: 15px;"></span><i class="fas fa-tint" style="color: red;"></i></h3>
+                        <h2><%=x.BloodType["O-"]%> Lit</h2>
+                        
+                    </div>
+                    <div class="box2">
+                        
+                        <h2>Total Donors<span style="padding-right: 10px;"></span><i class="fas fa-users" style="color: black;"></i></h2>
+                        <h2> <%= totalEntriesDonors %></h2>
+                        
+                    </div>
+                    
+                    <div class="box2">
+                        
+                        <h2>Total Requests<span style="padding-right: 10px;"></span><i class="fas fa-spinner" style="color: black;"></i></h2>
+                        <h2> <%= totalEntriesRequests %></h2>
+                        
+                    </div>
+                    <div class="box2">
+                        
+                        <h2>Approved Requests<span style="padding-right: 10px;"></span><i class="far fa-check-circle" style="color: green;"></i></h2>
+                        
+                    </div>
+                    
+                    <div class="box2">
+                        
+                        <h2>Total Blood Unit (in Lit)<span style="padding-right: 10px;"></span><i class="fas fa-tint xyz" style="color: red;"></i></h2>
+                        <h2><%= total_units %></h2>
+                        
+                    </div>
+        
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

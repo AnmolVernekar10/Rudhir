@@ -203,6 +203,16 @@ app.post("/userlogin", async function(req,res){
 // -----------------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------------
                             // User Blood Donation Data
+app.use(express.static("./"));
+app.get('/user_donate_form.ejs', async (req, res) => {
+    try {
+      const bloodbankslist = await BloodBank.find({}); // Fetch data from the "bloodbanks" collection
+      res.render('user_donate_form', { bloodbankslist }); // Render to "user_donate_blood.ejs" view and pass the data
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  });  
 
 // Info of User blood donation registration
 const UserDonation=new mongoose.Schema({
@@ -219,9 +229,12 @@ const UserDonation=new mongoose.Schema({
 const userdonation=mongoose.model("BloodDonation",UserDonation); //required to create collection
 
 app.post("/saveuserdonation",function(req,res){
+    const selectedOption = req.body.BBData;
+  // Split the selected value into an array using the delimiter
+    const [BloodBank_ID, BloodBankName] = selectedOption.split('|');
     let newuserdonatn=new userdonation({
-        BBName:req.body.BBName,
-        BBID:req.body.BBID,
+        BBName:BloodBankName,
+        BBID:BloodBank_ID,
         Name:req.body.Name,
         Age:req.body.Age,
         Bloodgrp:req.body.Bloodgrp,
@@ -238,6 +251,17 @@ app.get("/saveuserdonation",function(req,res){
 })
                             // User Blood Request Data
 
+app.use(express.static("./"));
+app.get('/user_request_form.ejs', async (req, res) => {
+    try {
+      const bloodbankslist = await BloodBank.find({}); // Fetch data from the "bloodbanks" collection
+      res.render('user_request_form', { bloodbankslist }); // Render to "user_request_blood.ejs" view and pass the data
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+
 // Info of User blood request registration
 const UserRequest=new mongoose.Schema({
     BBName:String,
@@ -252,9 +276,12 @@ const UserRequest=new mongoose.Schema({
 const userrequest=mongoose.model("BloodRequest",UserRequest); //required to create collection
 
 app.post("/saveuserrequest",function(req,res){
+    const selectedOption = req.body.BBData;
+  // Split the selected value into an array using the delimiter
+    const [BloodBank_ID, BloodBankName] = selectedOption.split('|');
     let newuserrequest=new userrequest({
-        BBName:req.body.BBName,
-        BBID:req.body.BBID,
+        BBName:BloodBankName,
+        BBID:BloodBank_ID,
         Name:req.body.Name,
         Age:req.body.Age,
         Bloodgrp:req.body.Bloodgrp,

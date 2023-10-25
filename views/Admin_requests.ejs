@@ -75,16 +75,16 @@
         .then(response => {
             if (response.status === 200) {
                 // Handle success, e.g., show a message to the user
-                alert('Accepted successfully!');
+                // alert('Accepted successfully!');
+                window.location.reload();
             } else {
                 // Handle errors, e.g., show an error message
-                alert('Acceptance failed.');
+                // alert('Acceptance failed.');
             }
         })
         .catch(error => {
             console.error('Error:', error);
         });
-        location.reload()
     }
     function requestreject(i) {
         // Send 'i' to admin.js using an AJAX request
@@ -98,16 +98,16 @@
         .then(response => {
             if (response.status === 200) {
                 // Handle success, e.g., show a message to the user
-                alert('Accepted successfully!');
+                // alert('Accepted successfully!');
+                window.location.reload();
             } else {
                 // Handle errors, e.g., show an error message
-                alert('Acceptance failed.');
+                // alert('Acceptance failed.');
             }
         })
         .catch(error => {
             console.error('Error:', error);
         });
-        location.reload()
     }
     </script>
 </body>

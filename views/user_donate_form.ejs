@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="public/User/user-donate_form.css">
+    
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&family=Titillium+Web:wght@300&display=swap"
+            rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+        <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+    <title>Donation form</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>RUDHIR</h2>
+            <ul>
+                <li><a href="/User/user-home.html"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="/user_donate_blood.ejs"><i class="fas fa-user"></i>Donate</a></li>
+                <li><a href="/user_request_blood.ejs"><i class="fas fa-user-injured"></i>Request</a></li>
+                <li><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i><span style="padding-right: 10px"></span>Logout</a></li>
+            </ul>
+            
+        </div>
+        
+        <div class="main_content">
+            <form action="/saveuserdonation" method="post">
+                <h1 style="text-decoration: underline;">Blood Donation form</h1>
+                
+                    <label >Select Blood Bank</label>
+                    <br>
+
+                    <select id="bloodBank" name="BBData" style="width: 400px; height: 50px; border-radius: 20px;">
+                        <% bloodbankslist.forEach(function(bank) { %>
+                            <option value="<%= bank.BloodBank_ID + '|' + bank.BloodBankName %>">
+                              <%= bank.BloodBankName %> - <%= bank.BloodBank_ID %>
+                            </option>
+                          <% }); %>
+                    </select>
+                            
+                    <br>
+                    <br>
+                    <span>Enter Full name</span>
+                    <input type="text" placeholder="Fullname" required name="Name" autofocus>
+                    <br>
+                    <span>Enter Age</span>
+                    <input type="number" name="Age" placeholder="Age" required name="Age" autofocus min="18">
+                    <br>
+                    <span>Enter blood group</span>
+                    <br>
+                    <select name="Bloodgrp" style="width: 400px; height: 40px; border-radius: 20px;">
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                    <br>
+                    <br>
+                    <span>Enter Quantity</span>
+                    <input type="number" placeholder="Quantity" required name="Quantity" autofocus min="1" max="5">
+                    <br>
+                    <span>Please Specify Medical Problem (If any)</span>
+                    <input type="text" placeholder="Medical problem" required name="Disease" autofocus>
+                    <br>
+                    <span>Select Donation date</span>
+                    <input type="date" id="eventDate" placeholder="Donation date" required name="Donationdate" autofocus >
+                    <br>
+                    <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+<script>
+    // Get today's date
+    const today = new Date();
+    
+    // Format it to 'YYYY-MM-DD' for the HTML date input
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Month is 0-based
+    const day = String(today.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
+    
+    // Set the 'min' attribute of the date input
+    document.getElementById('eventDate').setAttribute('min', formattedDate);
+  </script>
+</html>

@@ -9,7 +9,7 @@ const { MongoClient } = require('mongodb'); // Import mongodb module
 app.set('view engine','ejs')
 
 // const http=require('http').Server(app);
-app.use(express.static('public'));
+app.use(express.static('public')); // Serves static files
 
 app.use(bodyparser.urlencoded({extended:true}));    
 

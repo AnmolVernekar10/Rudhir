@@ -153,9 +153,9 @@ let adminbbid;
 app.post("/adminlogin", async function(req,res){
     const emailid=req.body.emailid;
     const password=req.body.password;
-
+    const BB_id=req.body.BB_id;
     try{
-        const admin=await Admin.findOne({emailid,password});
+        const admin=await Admin.findOne({emailid,password,BB_id});
         if(admin)
         {
             adminbbid=admin.BB_id
